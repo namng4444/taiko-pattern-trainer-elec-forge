@@ -2,7 +2,7 @@ platform:
   - x64
 
 environment:
-  nodejs_version: '12'
+  nodejs_version: '12.0.0'
   GITHUB_TOKEN:
     # This token is encrypted
     secure: tVRfceqfdK9KZeFidMTYw4dIwM01hsqa2+JZVjUTfzl9O4z+KyejA/RhMmmO6flz
@@ -19,6 +19,7 @@ branches:
     - /^v\d\.\d\.\d/
 
 install:
+  - ps: Update-NodeJsInstallation $env:nodejs_version $env:platform
   - ps: Install-Product node $env:nodejs_version $env:platform
   - set PATH=%APPDATA%\npm;%PATH%
   - npm install
