@@ -1,0 +1,35 @@
+platform:
+  - x64
+
+environment:
+  nodejs_version: '12'
+  GITHUB_TOKEN:
+    # This token is encrypted
+    secure: tVRfceqfdK9KZeFidMTYw4dIwM01hsqa2+JZVjUTfzl9O4z+KyejA/RhMmmO6flz
+
+cache:
+  - '%APPDATA%\npm-cache'
+  - '%USERPROFILE%\.electron'
+  - node_modules
+
+branches:
+  only:
+    - master
+    # Branches with the format v.x.x.x for version number
+    - /^v\d\.\d\.\d/
+
+install:
+  - ps: Install-Product node $env:nodejs_version $env:platform
+  - set PATH=%APPDATA%\npm;%PATH%
+  - npm install
+  - npm update
+
+test_script:
+  - node --version
+  - npm --version
+  - npm run lint
+  - if %APPVEYOR_REPO_TAG% EQU false npm run make
+
+# Publish only when the commit is tagged with a version number
+build_script:
+  - if %APPVEYOR_REPO_TAG% EQU true npm run publish --auth-token=%GITHUB_TOKEN%
