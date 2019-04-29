@@ -16,7 +16,7 @@ cache:
 branches:
   only:
     - master
-    # Branches with the format v.x.x.x for version number
+    # Branches with the format vx.x.x for version number
     - /^v\d\.\d\.\d/
 
 install:
