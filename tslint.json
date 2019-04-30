@@ -15,26 +15,26 @@
     "no-use-before-declare": true,
     "no-var-requires": true,
     "no-require-imports": true,
-    "one-line": [true,
-      "check-else",
-      "check-whitespace",
-      "check-open-brace"],
-    "quotemark": [true,
-      "single",
-      "avoid-escape"],
+    "one-line": [true, "check-else", "check-whitespace", "check-open-brace"],
+    "quotemark": [true, "single", "jsx-double", "avoid-escape"],
     "semicolon": [true, "always"],
-    "typedef-whitespace": [true, {
-      "call-signature": "nospace",
-      "index-signature": "nospace",
-      "parameter": "nospace",
-      "property-declaration": "nospace",
-      "variable-declaration": "nospace"
-    }],
-    "whitespace": [true,
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      }
+    ],
+    "whitespace": [
+      true,
       "check-branch",
       "check-decl",
       "check-operator",
       "check-separator",
-      "check-type"]
+      "check-type"
+    ]
   }
 }
